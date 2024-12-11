@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+stap = { editable = true, path = "." }
+scod-regression = { editable = true, path = "third_party/scod-regression" }
+matplotlib = "*"
+pandas = "*"
+seaborn = "*"
+shapely = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+tyro = "*"
+opencv-python = "*"
+atomicwrites = "*"
+pexpect = "*"
+gdown = "*"
+
+[dev-packages]
+black = "*"
+mypy = "*"
+flake8 = "*"
+pytest = "*"
+
+[requires]
+python_version = "3.8"
