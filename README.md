@@ -45,13 +45,10 @@ This is the planning and simulation framework used in *"VL2Interaction: Establis
 2. [Setup](#setup)
     - [Cloning](#cloning)
     - [Docker installation](#docker-installation)
-    - [Manual installation](#manual-installation)
 3. [Usage Instructions](#usage-instructions)
     - [Basic Usage](#basic-usage)
-    - [Model Checkpoints](#model-checkpoints)
     - [Training Skills](#training-skills)
     - [Evaluating Planning](#evaluating-planning)
-4. [Citation](#citation)
 
 
 # Overview
@@ -103,44 +100,6 @@ and on CPU use
 ```
 It is likely that you need a specific CUDA version to run the GPU docker. We provide Dockerfiles for version 11.8 and 12.1.
 
-## Manual installation
-
-### System Requirements
-This repository is primarily tested on Ubuntu 20.04 with Python 3.8.10.
-For all non-python requirements, see the requirements list in the Dockerfiles.
-
-### Installation
-Python packages are managed through conda 
-```
-conda env create -f environment.yml
-```
-or pip
-```
-# Install torch with the correct CUDA version of your GPU.
-pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 networkx==3.0 --index-url https://download.pytorch.org/whl/cu118 swig
-pip install --upgrade pip && pip install -r requirements.txt
-```
-
-#### Safety shield installation
-First, install Eigen3.4 using:
-```
-curl -LJO https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.bz2 && \
-    tar -xvf eigen-3.4.0.tar.bz2 && \
-    rm eigen-3.4.0.tar.bz2
-
-cd eigen-3.4.0/build
-cmake .. && make install
-cd ../..
-echo 'export EIGEN3_INCLUDE_DIR=$(pwd)' >> ~/.bashrc
-source ~/.bashrc
-```
-
-Then install `sara-shield`
-```
-cd third_party/sara-shield
-python setup.py install
-cd ../..
-```
 
 # Usage Instructions
 You can either use our [pre-trained models](#model-checkpoints) or [train the skills](#training-skills) yourselves.
@@ -151,22 +110,6 @@ STAP supports [training skills](#training-skills), and composing these component
 - **STAP module:** The majority of the project code is located in the package `stap/`. 
 - **Scripts:** Code for launching training, experiments, debugging, plotting, and visualization is under `scripts/`.
 - **Configs:** Training and evaluation functionality is determined by `.yaml` configuration files located in `configs/`.
-
-## Model Checkpoints
-As an alternative to [training the skills](#training-skills) from scratch, we provide checkpoints that can be downloaded and directly used to [evaluate STAP planners](#evaluating-planning).
-Run the following commands to download the model checkpoints to the default `models/` directory (this requires ~10GBs of disk space):
- - Demonstration data used to train inverse RL skills (`datasets`). This is not required for the evaluation.
-    ```bash
-    bash scripts/download/download_datasets.sh
-    ```
- - Skills trained with [inverse RL](#inverse-reinforcement-learning) (`policies_irl`), the Q-value function (`value_fns_irl`) and their dynamics models (`dynamics_irl`).
-    ```bash
-    bash scripts/download/download_models.sh
-    ```
- - Evaluation results that correspond to [evaluating Text2Interaction](#evaluating-motion-planning).
-    ```bash
-    bash scripts/download/download_results.sh
-    ```
 
 ## Training Skills
 
