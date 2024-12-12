@@ -8,7 +8,6 @@
 
 # VL2Interaction planning and simulation
 This is the planning and simulation framework used in *"VL2Interaction: Establishing Safe and Preferable Human-Robot Interaction,"*.
-This repository is based on [STAP](https://sites.google.com/stanford.edu/stap) *"Sequencing Task-Agnostic Policies"*. 
 
 <img src="readme/user_instruction.png" alt="Text2Interaction Preview" height="55pt"/>
 <p align="center">
