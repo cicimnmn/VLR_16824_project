@@ -215,12 +215,12 @@ For each primitive, we train the transition distribution $T(s_{t+1} \mid s_t, a_
 We can evaluate these models and the generated preference functions using the scripts provided in `scripts/eval/`. 
 
 ### Evaluating screwdriver handover
-The recurring example in Text2Interaction is the screwdriver handover. You can test this in simulation using
+ The screwdriver example can be tested in simulation using
 - With custom preference function:
 ```bash
-python scripts/eval/eval_planners.py --planner-config configs/pybullet/planners/policy_cem_screwdriver_custom_fns.yaml --env-config configs/pybullet/envs/official/sim_domains/screwdriver_handover/task0.yaml --policy-checkpoints models/policies_irl/pick/final_model.pt models/policies_irl/place/final_model.pt models/policies_irl/static_handover/final_model.pt --dynamics-checkpoint models/dynamics_irl/pick_place_static_handover_dynamics/final_model.pt --use_informed_dynamics 1 --seed 0 --gui 1 --closed-loop 1 --num-eval 100 --path plots/planning/screwdriver_handover/task0 --verbose
+python eval_planners.py --planner-config configs/pybullet/planners/policy_cem_screwdriver_custom_fns.yaml --env-config configs/pybullet/envs/official/sim_domains/screwdriver_handover/task0.yaml --policy-checkpoints models/policies_irl/pick/final_model.pt models/policies_irl/place/final_model.pt models/policies_irl/static_handover/final_model.pt --dynamics-checkpoint models/dynamics_irl/pick_place_static_handover_dynamics/final_model.pt --use_informed_dynamics 1 --seed 0 --gui 1 --closed-loop 1 --num-eval 100 --path plots/planning/screwdriver_handover/task0 --verbose
 ```
 - Without custom preference function:
 ```bash
-python scripts/eval/eval_planners.py --planner-config configs/pybullet/planners/policy_cem_no_custom.yaml --env-config configs/pybullet/envs/official/sim_domains/screwdriver_handover/task0.yaml --policy-checkpoints models/policies_irl/pick/final_model.pt models/policies_irl/place/final_model.pt models/policies_irl/static_handover/final_model.pt --dynamics-checkpoint models/dynamics_irl/pick_place_static_handover_dynamics/final_model.pt --use_informed_dynamics 1 --seed 0 --gui 1 --closed-loop 1 --num-eval 100 --path plots/planning/screwdriver_handover/task0 --verbose
+python eval_planners.py --planner-config configs/pybullet/planners/policy_cem_no_custom.yaml --env-config configs/pybullet/envs/official/sim_domains/screwdriver_handover/task0.yaml --policy-checkpoints models/policies_irl/pick/final_model.pt models/policies_irl/place/final_model.pt models/policies_irl/static_handover/final_model.pt --dynamics-checkpoint models/dynamics_irl/pick_place_static_handover_dynamics/final_model.pt --use_informed_dynamics 1 --seed 0 --gui 1 --closed-loop 1 --num-eval 100 --path plots/planning/screwdriver_handover/task0 --verbose
 ```
