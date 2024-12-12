@@ -1,5 +1,6 @@
 # Synthetic Data Generator
-run ‘generate_bbox.py’ to generate instructions directly from text prompts, or run ‘gradio_seg2image.py’ or ‘gradio_scribble2image.py’ to launch gradio UI to generate images with segmentation or scribble inputs. For example images see simulation and real_world folders.
+- run ‘generate_bbox.py’ to generate instructions directly from text prompts, or run ‘gradio_seg2image.py’ or ‘gradio_scribble2image.py’ to launch gradio UI to generate images with segmentation or scribble inputs.
+- For example images see simulation and real_world folders.
 
 # VL-based Preference Codegen
 - real_word_generation.py
