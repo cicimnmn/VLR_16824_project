@@ -14,7 +14,7 @@ This is the planning and simulation framework used in *"VL2Interaction: Establis
   <table>
     <tr>
       <td><img src="readme/planning_1.gif" alt="Baseline (Text2Interaction) Success case" style="width: 100%;"/><p align="center">Baseline (Text2Interaction) Success case</p></td>
-      <td><img src="readme/planning_1.gif_fail.gif" alt="Baseline (Text2Interaction) Failure case" style="width: 100%;"/><p align="center">Baseline (Text2Interaction) Failure case</p></td>
+      <td><img src="readme/planning_0.gif_failbaseline.gif" alt="Baseline (Text2Interaction) Failure case" style="width: 100%;"/><p align="center">Baseline (Text2Interaction) Failure case</p></td>
     </tr>
   </table>
 </p>
