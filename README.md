@@ -6,8 +6,8 @@
 - real_word_generation.py
 - simulation_generation.py
 
-# Text2Interaction planning and simulation
-This is the planning and simulation framework used in *"Text2Interaction: Establishing Safe and Preferable Human-Robot Interaction,"* presented at CoRL 2024.
+# VL2Interaction planning and simulation
+This is the planning and simulation framework used in *"VL2Interaction: Establishing Safe and Preferable Human-Robot Interaction,"*.
 This repository is based on [STAP](https://sites.google.com/stanford.edu/stap) *"Sequencing Task-Agnostic Policies"*. 
 
 For a brief overview of our work, please refer to our [project page](https://sites.google.com/view/text2interaction/).
@@ -18,12 +18,27 @@ Further details can be found in our paper available on [arXiv](https://arxiv.org
 <p align="center">
   <table>
     <tr>
-      <td><img src="readme/B1_JakobBaseline1.gif" alt="Without Text2Interaction" style="width: 100%;"/><p align="center">Without Text2Interaction</p></td>
-      <td><img src="readme/D2_JakobHandleCloser2.gif" alt="With Text2Interaction" style="width: 100%;"/><p align="center">With Text2Interaction</p></td>
+      <td><img src="readme/planning_1.gif" alt="Baseline (Text2Interaction) Success case" style="width: 100%;"/><p align="center">Baseline (Text2Interaction) Success case</p></td>
+      <td><img src="readme/planning_1.gif_fail.gif" alt="Baseline (Text2Interaction) Failure case" style="width: 100%;"/><p align="center">Baseline (Text2Interaction) Failure case</p></td>
     </tr>
   </table>
 </p>
-
+<p align="center">
+  <table>
+    <tr>
+      <td><img src="readme/planning_0.gif" alt="VL2Interaction Success case" style="width: 100%;"/><p align="center">VL2Interaction Success case</p></td>
+      <td><img src="readme/planning_0.gif_fail.gif" alt="VL2Interaction Failure case" style="width: 100%;"/><p align="center">VL2Interaction Failure case</p></td>
+    </tr>
+  </table>
+</p>
+<p align="center">
+  <table>
+    <tr>
+      <td><img src="readme/planning_04.gif" alt="Generalized VL2Interaction Success case" style="width: 100%;"/><p align="center">Generalized VL2Interaction Success case</p></td>
+      <td><img src="readme/planning_14.gif_fail.gif" alt="Generalized VL2Interaction Failure case" style="width: 100%;"/><p align="center">Generalized VL2Interaction Failure case</p></td>
+    </tr>
+  </table>
+</p>
 <!--
 <img src="readme/concept_example_3.png" alt="Text2Interaction Preview"/>
 <img src="readme/offline_online_overview_2.png" alt="Detailed overview">
