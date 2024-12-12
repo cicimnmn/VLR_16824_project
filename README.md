@@ -10,10 +10,6 @@
 This is the planning and simulation framework used in *"VL2Interaction: Establishing Safe and Preferable Human-Robot Interaction,"*.
 This repository is based on [STAP](https://sites.google.com/stanford.edu/stap) *"Sequencing Task-Agnostic Policies"*. 
 
-For a brief overview of our work, please refer to our [project page](https://sites.google.com/view/text2interaction/).
-
-Further details can be found in our paper available on [arXiv](https://arxiv.org/abs/2408.06105v1).
-
 <img src="readme/user_instruction.png" alt="Text2Interaction Preview" height="55pt"/>
 <p align="center">
   <table>
@@ -45,7 +41,7 @@ Further details can be found in our paper available on [arXiv](https://arxiv.org
 -->
 
 # Table of Contents
-1. [Text2Interaction planning and simulation](#text2interaction-planning-and-simulation)
+1. [VLInteraction planning and simulation](#text2interaction-planning-and-simulation)
     - [Overview](#overview)
 2. [Setup](#setup)
     - [Cloning](#cloning)
@@ -61,7 +57,7 @@ Further details can be found in our paper available on [arXiv](https://arxiv.org
 
 # Overview
 
-The Text2Interaction framework can be broken down into three phases: 
+The VL2Interaction framework can be broken down into three phases: 
  1. Train skills offline (i.e. policies, Q-functions, dynamics models, uncertainty quantifers)
  2. Generate preference functions (can be found in [fm-planning](https://github.com/agiachris/fm-planning/tree/t2i))
  3. Plan with skills online (i.e. motion planning, task and motion planning).
@@ -87,7 +83,7 @@ Then, you can either use the [Dockerfiles provided](#docker-installation) (for t
 ## Cloning
 Clone this repo with submodules
 ```
-git clone --recurse-submodules git@github.com:JakobThumm/STAP.git
+git clone --recurse-submodules git@github.com:cicimnmn/VLR_16824_project.git
 ```
 If you forgot to clone with submodules, make sure to add them now:
 ```
@@ -145,16 +141,6 @@ Then install `sara-shield`
 cd third_party/sara-shield
 python setup.py install
 cd ../..
-```
-
-#### STAP installation
-Install `scod-regression` using
-```
-pip install third_party/scod-regression/
-```
-Install `STAP` using
-```
-pip install .
 ```
 
 # Usage Instructions
@@ -238,62 +224,4 @@ python scripts/eval/eval_planners.py --planner-config configs/pybullet/planners/
 - Without custom preference function:
 ```bash
 python scripts/eval/eval_planners.py --planner-config configs/pybullet/planners/policy_cem_no_custom.yaml --env-config configs/pybullet/envs/official/sim_domains/screwdriver_handover/task0.yaml --policy-checkpoints models/policies_irl/pick/final_model.pt models/policies_irl/place/final_model.pt models/policies_irl/static_handover/final_model.pt --dynamics-checkpoint models/dynamics_irl/pick_place_static_handover_dynamics/final_model.pt --use_informed_dynamics 1 --seed 0 --gui 1 --closed-loop 1 --num-eval 100 --path plots/planning/screwdriver_handover/task0 --verbose
-```
-
-We evaluated this behavior on a real-world Frank Research 3 robot. The code for that is provided in the `ROS-noetic` branch. In our real-world setup, we use `sara-shield` to guarantee the safety of the human user. The code for deploying `sara-shield` together with this repo can be found [here](https://github.com/JakobThumm/sara_shield_ros).
-
-### Ablation study
-
-<img src="readme/ablation_results.png" alt="Ablation study results" width="400pt"/>
-
-We evaluate four models in our ablation study:
- - Oracle: hand scripted preference functions run with the default Text2Interaction formulation.
- - Baseline 1: only optimize for task success
- - Baseline 2: optimize for the sum of task success and preference function. Uses the generated preference functions of the LLM.
- - Text2Interaction: optimize for the product of task success and preference function. Uses the generated preference functions of the LLM.
-
-To reproduce our evaluation, run:
- - Oracle
-    ```bash
-    ./run_docker_train.sh user gpu
-    ./scripts/eval/eval_object_arrangement_oracle.sh
-    ```
- - Baseline 1
-    ```bash
-    ./run_docker_train.sh user gpu
-    ./scripts/eval/eval_object_arrangement_baseline.sh
-    ```
- - Baseline 2
-    ```bash
-    ./run_docker_train.sh user gpu
-    ./scripts/eval/eval_object_arrangement_additive_baseline.sh
-    ```
- - Text2Interaction
-    ```bash
-    ./run_docker_train.sh user gpu
-    ./scripts/eval/eval_object_arrangement_ablation.sh
-    ```
-
-### Summarize the results
-To summarize the generated ablation results, run
-```
-./models/mv_all_eval_files.sh
-python scripts/eval/eval_planner_summary.py --eval-path models/eval/planning/object_arrangement/
-```
-The resulting summary can be found in `models/eval/planning/object_arrangement/summary.csv`.
-
-
-# Citation
-Sequencing Task-Agnostic Policies and Text2Interaction is offered under the MIT License agreement. 
-If you find Text2Interaction useful, please consider citing our work:
-```
-@inproceedings{thumm_2024_Text2InteractionEstablishing,
-  title = {Text2Interaction: Establishing Safe and Preferable Human-Robot Interaction},
-  shorttitle = {Text2Interaction},
-  booktitle = {8th Annual Conference on Robot Learning},
-  author = {Thumm, Jakob and Agia, Christopher and Pavone, Marco and Althoff, Matthias},
-  year = {2024},
-  url = {https://openreview.net/forum?id=s0VNSnPeoA&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3Drobot-learning.org%2FCoRL%2F2024%2FConference%2FAuthors%23your-submissions)},
-  langid = {english},
-}
 ```
