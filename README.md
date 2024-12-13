@@ -1,15 +1,5 @@
 # Synthetic Vision Data Generator
-- run the following script to generate instructions directly from text prompts 
-  ```bash
-python generate_bbox.py
-```
-- or run the following to launch gradio UI to generate images with segmentation or scribble inputs:
-  ```bash
-python gradio_seg2image.py
-```
-  ```bash
-gradio_scribble2image.py
-```
+- run python generate_bbox.py to generate instructions directly from text prompts, or run 'python gradio_seg2image.py' or 'gradio_scribble2image.py' the following to launch gradio UI to generate images with segmentation or scribble inputs
 - For generated images sample: please see simulation and real_world folders.
 
 # VL-based Preference Codegen
