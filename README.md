@@ -1,4 +1,4 @@
-# Synthetic Data Generator
+# Synthetic Vision Data Generator
 - run ‘generate_bbox.py’ to generate instructions directly from text prompts, or run ‘gradio_seg2image.py’ or ‘gradio_scribble2image.py’ to launch gradio UI to generate images with segmentation or scribble inputs.
 - For example images see simulation and real_world folders.
 
@@ -54,9 +54,14 @@ This is the planning and simulation framework used in *"VL2Interaction: Establis
 # Overview
 
 The VL2Interaction framework can be broken down into three phases: 
- 1. Train skills offline (i.e. policies, Q-functions, dynamics models, uncertainty quantifers)
- 2. Generate preference functions (can be found in [fm-planning](https://github.com/agiachris/fm-planning/tree/t2i))
- 3. Plan with skills online (i.e. motion planning, task and motion planning).
+ 1. Synthetic Vision Data Generator (our approach): generate preferred and not preferred vision demonstrations data for downstream preference codegen tasks
+ 2. Generalized Vision Language Preference Codegen:
+    - baseline (human heuristic based, text-only): can be found in [fm-planning](https://github.com/agiachris/fm-planning/tree/t2i))
+    - our approach (Generalized Vision Language Preference Codegen): real_word_generation.py, simulation_generation.py
+      - preference function generation
+      - non-Euclidean reasoning topology generated for downstream interaction tasks
+ 3. Train skills offline (i.e. policies, Q-functions, dynamics models, uncertainty quantifers)
+ 4. Plan with skills online (i.e. motion planning, task and motion planning).
 We provide implementations for phases 1 and 3 in this repo:
 
 ### :hammer_and_wrench: Train Skills Offline
